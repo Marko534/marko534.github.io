@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- <html lang="en" class="dark"> -->
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -10,6 +11,12 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
 
     <!-- Google Fonts -->
+    <script>
+        if (localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
         rel="stylesheet">
@@ -202,8 +209,7 @@
                     <h3 class="font-semibold text-gray-800 dark:text-gray-200 flex items-center gap-2"><span
                             class="text-indigo-500">▹</span> Languages</h3>
                     <div class="flex flex-wrap gap-2 mt-3">
-                        <span
-                            class="inline-flex items-center rounded-md bg-gray-50 dark:bg-gray-800 px-2.5 py-1 text-xs font-medium text-gray-700 dark:text-gray-300 ring-1 ring-inset ring-gray-500/20 dark:ring-gray-700">Python</span>
+                        <span class="skill-badge">Python</span>
                         <span class="skill-badge">SQL</span><span class="skill-badge">Java</span><span
                             class="skill-badge">C#</span>
                         <span class="skill-badge">C++</span><span class="skill-badge">Rust</span><span
@@ -252,8 +258,7 @@
                         target="_blank">github.com/Marko534</a></p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div
-                    class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-5 transition-all hover:shadow-md card-hover">
+                <div class="card">
                     <div class="flex items-center justify-between mb-2"><span class="text-2xl">🐾</span><span
                             class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">.NET
                             Core</span></div>
@@ -261,8 +266,7 @@
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Pet adoption app using .NET Core and
                         PostgreSQL. Gained experience in REST APIs and team collaboration.</p>
                 </div>
-                <div
-                    class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-5 card-hover">
+                <div class="card">
                     <div class="flex items-center justify-between mb-2"><span class="text-2xl">🖥️</span><span
                             class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">Vulkan/C++</span>
                     </div>
@@ -270,8 +274,7 @@
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">3D modeling application with Vulkan and
                         C++. Focused on backend and low-level graphics pipeline.</p>
                 </div>
-                <div
-                    class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-5 card-hover">
+                <div class="card">
                     <div class="flex items-center justify-between mb-2"><span class="text-2xl">📸</span><span
                             class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">Raspberry
                             Pi</span></div>
@@ -279,17 +282,15 @@
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Custom Raspberry Pi camera with touch
                         screen UI, supporting 4K video and photos.</p>
                 </div>
-                <div
-                    class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-5 card-hover">
+                <div class="card">
                     <div class="flex items-center justify-between mb-2"><span class="text-2xl">🧭</span><span
                             class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">Python/JS</span>
                     </div>
                     <h3 class="font-bold text-gray-900 dark:text-white text-lg">Pathfinder</h3>
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Visualization tool for pathfinding
-                        algorithms using Markov Chains (Python/JavaScript).</p>
+                        algorithms using Markov Chains (JavaScript).</p>
                 </div>
-                <div
-                    class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-5 card-hover">
+                <div class="card">
                     <div class="flex items-center justify-between mb-2"><span class="text-2xl">💧</span><span
                             class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">CUDA</span>
                     </div>
@@ -297,8 +298,7 @@
                     <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">CUDA-based fluid flow simulation to learn
                         GPU programming and parallel computing.</p>
                 </div>
-                <div
-                    class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-5 card-hover">
+                <div class="card">
                     <div class="flex items-center justify-between mb-2"><span class="text-2xl">🎮</span><span
                             class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">Godot</span>
                     </div>
@@ -315,7 +315,7 @@
                 <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Education</h2>
             </div>
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-6">
+                <div class="card">
                     <div class="flex items-start gap-3">
                         <div class="bg-indigo-100 dark:bg-indigo-950/50 p-2 rounded-lg"><svg
                                 class="w-6 h-6 text-indigo-700 dark:text-indigo-400" fill="none" stroke="currentColor"
@@ -339,7 +339,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-6">
+                <div class="card">
                     <div class="flex items-start gap-3">
                         <div class="bg-amber-50 dark:bg-amber-950/30 p-2 rounded-lg"><svg
                                 class="w-6 h-6 text-amber-600 dark:text-amber-500" fill="none" stroke="currentColor"
