@@ -1,413 +1,486 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
-    <link href="dist/output.css" rel="stylesheet">
-    <!-- This script is slow will see how to remove it latter -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marko Ilioski · Software Developer CV</title>
+    <!-- Tailwind CSS v4 + basic interceptor for smooth behaviour -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- optional: add google fonts for better readability -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            transition: background-color 0.3s ease, color 0.2s ease;
+        }
+
+        /* smooth transitions for cards and interactive elements */
+        .card-hover {
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px -12px rgba(0, 0, 0, 0.12);
+        }
+
+        /* custom scrollbar for dark mode consistency */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        .dark ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+
+        .dark ::-webkit-scrollbar-thumb {
+            background: #475569;
+        }
+    </style>
 </head>
 
-<body>THIS IS A TEST</body>
+<body class="antialiased bg-gray-50 dark:bg-gray-950 transition-colors duration-300">
 
-<!-- Include this script tag or install `@tailwindplus/elements` via npm: -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script> -->
-<!-- HEADER -->
-<header class="bg-white">
-    <nav aria-label="Global" class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
-        <div class="flex lg:flex-1">
-            <a href="#" class="-m-1.5 p-1.5">
-                <span class="sr-only">Your Company</span>
-                <img src="assets/images/ava.png" alt="AVAAA" class="h-8 w-auto" />
-            </a>
-        </div>
-        <div class="flex lg:hidden">
-            <button type="button" command="show-modal" commandfor="mobile-menu"
-                class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-                <span class="sr-only">Open main menu</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon"
-                    aria-hidden="true" class="size-6">
-                    <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
-            </button>
-        </div>
-        <el-popover-group class="hidden lg:flex lg:gap-x-12">
-            <div class="relative">
-                <button popovertarget="desktop-menu-product"
-                    class="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900">
-                    Product
-                    <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true"
-                        class="size-5 flex-none text-gray-400">
-                        <path
-                            d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-                            clip-rule="evenodd" fill-rule="evenodd" />
+    <!-- SIMPLE HEADER with name/role and DARK MODE TOGGLE (auto + manual) -->
+    <header
+        class="bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 sticky top-0 z-20 shadow-sm transition-colors">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8 py-4 flex items-center justify-between flex-wrap gap-3">
+            <div class="flex items-center gap-3">
+                <div
+                    class="h-10 w-10 rounded-full bg-gradient-to-tr from-indigo-600 to-indigo-400 flex items-center justify-center text-white font-bold text-lg shadow-sm">
+                    M</div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">Marko Ilioski</h1>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 -mt-0.5">Software Developer · Data Engineer</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="hidden sm:flex gap-4 text-sm">
+                    <a href="#experience"
+                        class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition">Experience</a>
+                    <a href="#projects"
+                        class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition">Projects</a>
+                    <a href="#education"
+                        class="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 font-medium transition">Education</a>
+                </div>
+                <!-- DARK MODE TOGGLE BUTTON (auto system preference + manual override) -->
+                <button id="darkModeToggle" aria-label="Toggle dark mode"
+                    class="relative p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    <svg id="sunIcon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                        </path>
+                    </svg>
+                    <svg id="moonIcon" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                        </path>
                     </svg>
                 </button>
-
-                <el-popover id="desktop-menu-product" anchor="bottom" popover
-                    class="w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg outline-1 outline-gray-900/5 transition transition-discrete [--anchor-gap:--spacing(3)] backdrop:bg-transparent open:block data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in">
-                    <div class="p-4">
-                        <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50">
-                            <div
-                                class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                    data-slot="icon" aria-hidden="true"
-                                    class="size-6 text-gray-600 group-hover:text-indigo-600">
-                                    <path d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                    <path d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="flex-auto">
-                                <a href="#" class="block font-semibold text-gray-900">
-                                    Analytics
-                                    <span class="absolute inset-0"></span>
-                                </a>
-                                <p class="mt-1 text-gray-600">Get a better understanding of your traffic</p>
-                            </div>
-                        </div>
-                        <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50">
-                            <div
-                                class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                    data-slot="icon" aria-hidden="true"
-                                    class="size-6 text-gray-600 group-hover:text-indigo-600">
-                                    <path
-                                        d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672ZM12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243-1.59-1.59"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="flex-auto">
-                                <a href="#" class="block font-semibold text-gray-900">
-                                    Engagement
-                                    <span class="absolute inset-0"></span>
-                                </a>
-                                <p class="mt-1 text-gray-600">Speak directly to your customers</p>
-                            </div>
-                        </div>
-                        <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50">
-                            <div
-                                class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                    data-slot="icon" aria-hidden="true"
-                                    class="size-6 text-gray-600 group-hover:text-indigo-600">
-                                    <path
-                                        d="M7.864 4.243A7.5 7.5 0 0 1 19.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A7.465 7.465 0 0 0 4.5 10.5a7.464 7.464 0 0 1-1.15 3.993m1.989 3.559A11.209 11.209 0 0 0 8.25 10.5a3.75 3.75 0 1 1 7.5 0c0 .527-.021 1.049-.064 1.565M12 10.5a14.94 14.94 0 0 1-3.6 9.75m6.633-4.596a18.666 18.666 0 0 1-2.485 5.33"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="flex-auto">
-                                <a href="#" class="block font-semibold text-gray-900">
-                                    Security
-                                    <span class="absolute inset-0"></span>
-                                </a>
-                                <p class="mt-1 text-gray-600">Your customers’ data will be safe and secure</p>
-                            </div>
-                        </div>
-                        <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50">
-                            <div
-                                class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                    data-slot="icon" aria-hidden="true"
-                                    class="size-6 text-gray-600 group-hover:text-indigo-600">
-                                    <path
-                                        d="M13.5 16.875h3.375m0 0h3.375m-3.375 0V13.5m0 3.375v3.375M6 10.5h2.25a2.25 2.25 0 0 0 2.25-2.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v2.25A2.25 2.25 0 0 0 6 10.5Zm0 9.75h2.25A2.25 2.25 0 0 0 10.5 18v-2.25a2.25 2.25 0 0 0-2.25-2.25H6a2.25 2.25 0 0 0-2.25 2.25V18A2.25 2.25 0 0 0 6 20.25Zm9.75-9.75H18a2.25 2.25 0 0 0 2.25-2.25V6A2.25 2.25 0 0 0 18 3.75h-2.25A2.25 2.25 0 0 0 13.5 6v2.25a2.25 2.25 0 0 0 2.25 2.25Z"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="flex-auto">
-                                <a href="#" class="block font-semibold text-gray-900">
-                                    Integrations
-                                    <span class="absolute inset-0"></span>
-                                </a>
-                                <p class="mt-1 text-gray-600">Connect with third-party tools</p>
-                            </div>
-                        </div>
-                        <div class="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50">
-                            <div
-                                class="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                    data-slot="icon" aria-hidden="true"
-                                    class="size-6 text-gray-600 group-hover:text-indigo-600">
-                                    <path
-                                        d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="flex-auto">
-                                <a href="#" class="block font-semibold text-gray-900">
-                                    Automations
-                                    <span class="absolute inset-0"></span>
-                                </a>
-                                <p class="mt-1 text-gray-600">Build strategic funnels that will convert</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                        <a href="#"
-                            class="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100">
-                            <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true"
-                                class="size-5 flex-none text-gray-400">
-                                <path
-                                    d="M2 10a8 8 0 1 1 16 0 8 8 0 0 1-16 0Zm6.39-2.908a.75.75 0 0 1 .766.027l3.5 2.25a.75.75 0 0 1 0 1.262l-3.5 2.25A.75.75 0 0 1 8 12.25v-4.5a.75.75 0 0 1 .39-.658Z"
-                                    clip-rule="evenodd" fill-rule="evenodd" />
-                            </svg>
-                            Watch demo
-                        </a>
-                        <a href="#"
-                            class="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-gray-900 hover:bg-gray-100">
-                            <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true"
-                                class="size-5 flex-none text-gray-400">
-                                <path
-                                    d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 0 1 2.43 8.326 13.019 13.019 0 0 1 2 5V3.5Z"
-                                    clip-rule="evenodd" fill-rule="evenodd" />
-                            </svg>
-                            Contact sales
-                        </a>
-                    </div>
-                </el-popover>
             </div>
-
-            <a href="#" class="text-sm/6 font-semibold text-gray-900">Features</a>
-            <a href="#" class="text-sm/6 font-semibold text-gray-900">Marketplace</a>
-            <a href="#" class="text-sm/6 font-semibold text-gray-900">Company</a>
-        </el-popover-group>
-        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-
         </div>
-    </nav>
-    <el-dialog>
-        <dialog id="mobile-menu" class="backdrop:bg-transparent lg:hidden">
-            <div tabindex="0" class="fixed inset-0 focus:outline-none">
-                <el-dialog-panel
-                    class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-                    <div class="flex items-center justify-between">
-                        <a href="#" class="-m-1.5 p-1.5">
-                            <span class="sr-only">Your Company</span>
-                            <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-                                alt="" class="h-8 w-auto" />
-                        </a>
-                        <button type="button" command="close" commandfor="mobile-menu"
-                            class="-m-2.5 rounded-md p-2.5 text-gray-700">
-                            <span class="sr-only">Close menu</span>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                data-slot="icon" aria-hidden="true" class="size-6">
-                                <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="mt-6 flow-root">
-                        <div class="-my-6 divide-y divide-gray-500/10">
-                            <div class="space-y-2 py-6">
-                                <div class="-mx-3">
-                                    <button type="button" command="--toggle" commandfor="products"
-                                        class="flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
-                                        Product
-                                        <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true"
-                                            class="size-5 flex-none in-aria-expanded:rotate-180">
-                                            <path
-                                                d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-                                                clip-rule="evenodd" fill-rule="evenodd" />
-                                        </svg>
-                                    </button>
-                                    <el-disclosure id="products" hidden class="mt-2 block space-y-2">
-                                        <a href="#"
-                                            class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50">Analytics</a>
-                                        <a href="#"
-                                            class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50">Engagement</a>
-                                        <a href="#"
-                                            class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50">Security</a>
-                                        <a href="#"
-                                            class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50">Integrations</a>
-                                        <a href="#"
-                                            class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50">Automations</a>
-                                        <a href="#"
-                                            class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50">Watch
-                                            demo</a>
-                                        <a href="#"
-                                            class="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50">Contact
-                                            sales</a>
-                                    </el-disclosure>
-                                </div>
-                                <a href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Features</a>
-                                <a href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Marketplace</a>
-                                <a href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Company</a>
-                            </div>
-                            <div class="py-6">
-                                <a href="#"
-                                    class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Log
-                                    in</a>
-                            </div>
+    </header>
+
+    <main class="mx-auto max-w-5xl px-6 lg:px-8 py-10 lg:py-12">
+
+        <!-- HERO / INTRO CARD (profile summary) -->
+        <div
+            class="bg-white dark:bg-gray-900 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden mb-10 transition-colors">
+            <div class="p-6 sm:p-8">
+                <div class="flex flex-col md:flex-row md:items-start gap-6">
+                    <div class="flex-1">
+                        <div
+                            class="inline-flex items-center rounded-full bg-indigo-50 dark:bg-indigo-950/60 px-3 py-1 text-xs font-medium text-indigo-700 dark:text-indigo-300 ring-1 ring-inset ring-indigo-700/10 dark:ring-indigo-400/30 mb-4">
+                            ✨ open for opportunities</div>
+                        <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">Marko
+                            Ilioski</h2>
+                        <p class="text-lg text-indigo-600 dark:text-indigo-400 font-medium mt-1">Software Developer &
+                            Data Engineer</p>
+                        <div class="mt-4 flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-300">
+                            <span class="flex items-center gap-1.5"><svg
+                                    class="w-4 h-4 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                    </path>
+                                </svg>+389 75 813 355</span>
+                            <span class="flex items-center gap-1.5"><svg
+                                    class="w-4 h-4 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                        d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75">
+                                    </path>
+                                </svg>markoilioski21@gmail.com</span>
+                            <a href="https://github.com/Marko534" target="_blank"
+                                class="flex items-center gap-1.5 text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition"><svg
+                                    class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd"
+                                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                                        clip-rule="evenodd"></path>
+                                </svg>Marko534</a>
+                        </div>
+                        <!-- professional summary block -->
+                        <div class="mt-6 pt-4 border-t border-gray-100 dark:border-gray-800">
+                            <h3 class="text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wide">
+                                Professional Summary</h3>
+                            <p class="mt-2 text-gray-700 dark:text-gray-300 leading-relaxed">Software Developer with
+                                experience in data engineering, backend development, and system optimization. Skilled in
+                                Python, SQL, C++, Google Cloud, and Linux. Passionate about learning new technologies
+                                and solving complex problems through hands-on projects (and cooking).</p>
                         </div>
                     </div>
-                </el-dialog-panel>
+                    <div class="hidden md:block md:w-28">
+                        <div class="bg-indigo-50 dark:bg-indigo-950/40 rounded-2xl p-4 text-center transition-colors">
+                            <div class="text-4xl mb-1">👨‍💻</div>
+                            <div class="text-xs text-gray-600 dark:text-gray-400 mt-1">4+ years<br>coding journey</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </dialog>
-    </el-dialog>
-</header>
-
-
-<body>
-    <div class="calculator">
-        <div class="display">
-            <div class="previous-operand" id="previousOperand"></div>
-            <div class="current-operand" id="currentOperand">0</div>
         </div>
-        <div class="buttons">
-            <button class="clear" onclick="clearDisplay()">C</button>
-            <button onclick="deleteLast()">⌫</button>
-            <button class="operator" onclick="appendOperator('/')">÷</button>
-            <button class="operator" onclick="appendOperator('*')">×</button>
 
-            <button onclick="appendNumber('7')">7</button>
-            <button onclick="appendNumber('8')">8</button>
-            <button onclick="appendNumber('9')">9</button>
-            <button class="operator" onclick="appendOperator('-')">-</button>
-
-            <button onclick="appendNumber('4')">4</button>
-            <button onclick="appendNumber('5')">5</button>
-            <button onclick="appendNumber('6')">6</button>
-            <button class="operator" onclick="appendOperator('+')">+</button>
-
-            <button onclick="appendNumber('1')">1</button>
-            <button onclick="appendNumber('2')">2</button>
-            <button onclick="appendNumber('3')">3</button>
-            <button class="equals" onclick="calculate()">=</button>
-
-            <button class="zero" onclick="appendNumber('0')">0</button>
-            <button onclick="appendNumber('.')">.</button>
+        <!-- WORK EXPERIENCE -->
+        <div id="experience" class="mb-12 scroll-mt-20">
+            <div class="border-l-4 border-indigo-500 pl-4 mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Work Experience</h2>
+                <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Industry exposure & impactful contributions</p>
+            </div>
+            <div class="space-y-8">
+                <!-- Involve -->
+                <div
+                    class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm p-6 transition-colors card-hover">
+                    <div class="flex flex-wrap justify-between items-start gap-2">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Data Engineer · Involve</h3>
+                            <p class="text-indigo-600 dark:text-indigo-400 text-sm font-medium">Feb 2025 – Aug 2025</p>
+                        </div>
+                        <span
+                            class="bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs px-3 py-1 rounded-full border dark:border-gray-700">Reference:
+                            <a href="https://www.linkedin.com/in/klimentina-ratkova-2b1475102/"
+                                class="text-indigo-600 dark:text-indigo-400 hover:underline" target="_blank">Klimentina
+                                Ratkova</a></span>
+                    </div>
+                    <ul
+                        class="mt-4 space-y-2 text-gray-700 dark:text-gray-300 text-sm list-disc pl-5 marker:text-indigo-400">
+                        <li>Migrated system from daily to hourly updates, optimizing Google Cloud Platform to reduce
+                            costs by <strong class="font-semibold">90%</strong>.</li>
+                        <li>Integrated data from Google Ads and internal sales, enabling regional profit analysis and
+                            real-time insights.</li>
+                        <li>Collaborated with data scientists to prepare metrics and implemented layered database
+                            architecture for website visitors.</li>
+                    </ul>
+                </div>
+                <!-- Aspect Intern -->
+                <div
+                    class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm p-6 card-hover">
+                    <div class="flex flex-wrap justify-between items-start gap-2">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Intern · Aspect</h3>
+                            <p class="text-indigo-600 dark:text-indigo-400 text-sm font-medium">Jul 2023 – Sep 2023</p>
+                        </div>
+                    </div>
+                    <ul
+                        class="mt-4 space-y-2 text-gray-700 dark:text-gray-300 text-sm list-disc pl-5 marker:text-indigo-400">
+                        <li>Developed C# applications and managed SQL databases, using RabbitMQ for real-time messaging
+                            pipelines.</li>
+                        <li>Optimized OpenXML data insertion, reducing processing time significantly for large document
+                            workflows.</li>
+                        <li>Utilized Azure DevOps for CI/CD pipelines and Docker for containerized deployments.</li>
+                    </ul>
+                </div>
+                <!-- InterWorks -->
+                <div
+                    class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm p-6 card-hover">
+                    <div class="flex flex-wrap justify-between items-start gap-2">
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Intern · InterWorks</h3>
+                            <p class="text-indigo-600 dark:text-indigo-400 text-sm font-medium">Jul 2022 – Aug 2022</p>
+                        </div>
+                    </div>
+                    <ul
+                        class="mt-4 space-y-2 text-gray-700 dark:text-gray-300 text-sm list-disc pl-5 marker:text-indigo-400">
+                        <li>Automated data processing with Python (pandas, numpy) and optimized SQL queries for faster
+                            ETL.</li>
+                        <li>Developed scripts for data visualization and database automation, improving reporting
+                            efficiency.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
+
+        <!-- Technical Skills: badge grid style -->
+        <div class="mb-12">
+            <div class="border-l-4 border-indigo-500 pl-4 mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Technical Skills</h2>
+                <p class="text-gray-500 dark:text-gray-400 text-sm">Tools, languages & frameworks I work with</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-5">
+                    <h3 class="font-semibold text-gray-800 dark:text-gray-200 flex items-center gap-2"><span
+                            class="text-indigo-500">▹</span> Languages</h3>
+                    <div class="flex flex-wrap gap-2 mt-3">
+                        <span
+                            class="inline-flex items-center rounded-md bg-gray-50 dark:bg-gray-800 px-2.5 py-1 text-xs font-medium text-gray-700 dark:text-gray-300 ring-1 ring-inset ring-gray-500/20 dark:ring-gray-700">Python</span>
+                        <span class="skill-badge">SQL</span><span class="skill-badge">Java</span><span
+                            class="skill-badge">C#</span>
+                        <span class="skill-badge">C++</span><span class="skill-badge">Rust</span><span
+                            class="skill-badge">Kotlin</span>
+                        <span class="skill-badge">PHP</span><span class="skill-badge">bash</span>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-5">
+                    <h3 class="font-semibold text-gray-800 dark:text-gray-200 flex items-center gap-2"><span
+                            class="text-indigo-500">▹</span> Data Science & ML</h3>
+                    <div class="flex flex-wrap gap-2 mt-3">
+                        <span class="skill-badge">Pandas</span><span class="skill-badge">NumPy</span><span
+                            class="skill-badge">Scikit-learn</span>
+                        <span class="skill-badge">TensorFlow</span><span class="skill-badge">PyTorch</span><span
+                            class="skill-badge">Spark</span><span class="skill-badge">CUDA</span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 dark:text-gray-200 mt-4 flex items-center gap-2"><span
+                            class="text-indigo-500">▹</span> Frameworks & Cloud</h3>
+                    <div class="flex flex-wrap gap-2 mt-2">
+                        <span class="skill-badge">Laravel</span><span class="skill-badge">Spring</span><span
+                            class="skill-badge">.NET</span>
+                        <span class="skill-badge">Vulkan</span><span class="skill-badge">OpenGL</span><span
+                            class="skill-badge">Godot</span>
+                        <span class="skill-badge">Docker</span><span class="skill-badge">CMake</span><span
+                            class="skill-badge">Google Cloud</span>
+                        <span class="skill-badge">PostgreSQL</span><span class="skill-badge">MS SQL Server</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-5">
+                <h3 class="font-semibold text-gray-800 dark:text-gray-200">🌐 Languages</h3>
+                <div class="flex flex-wrap gap-6 mt-2 text-sm text-gray-700 dark:text-gray-300">
+                    <span>🇲🇰 Macedonian (Native)</span>
+                    <span>🇬🇧 English (Fluent)</span>
+                    <span>🇩🇪 German (A2)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects section -->
+        <div id="projects" class="mb-12 scroll-mt-20">
+            <div class="border-l-4 border-indigo-500 pl-4 mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Projects</h2>
+                <p class="text-gray-500 dark:text-gray-400 text-sm">Hands-on building & open source — <a
+                        href="https://github.com/Marko534" class="text-indigo-600 dark:text-indigo-400 hover:underline"
+                        target="_blank">github.com/Marko534</a></p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div
+                    class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-5 transition-all hover:shadow-md card-hover">
+                    <div class="flex items-center justify-between mb-2"><span class="text-2xl">🐾</span><span
+                            class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">.NET
+                            Core</span></div>
+                    <h3 class="font-bold text-gray-900 dark:text-white text-lg">PawPrint</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Pet adoption app using .NET Core and
+                        PostgreSQL. Gained experience in REST APIs and team collaboration.</p>
+                </div>
+                <div
+                    class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-5 card-hover">
+                    <div class="flex items-center justify-between mb-2"><span class="text-2xl">🖥️</span><span
+                            class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">Vulkan/C++</span>
+                    </div>
+                    <h3 class="font-bold text-gray-900 dark:text-white text-lg">BlenderLikeProgram</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">3D modeling application with Vulkan and
+                        C++. Focused on backend and low-level graphics pipeline.</p>
+                </div>
+                <div
+                    class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-5 card-hover">
+                    <div class="flex items-center justify-between mb-2"><span class="text-2xl">📸</span><span
+                            class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">Raspberry
+                            Pi</span></div>
+                    <h3 class="font-bold text-gray-900 dark:text-white text-lg">Pita</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Custom Raspberry Pi camera with touch
+                        screen UI, supporting 4K video and photos.</p>
+                </div>
+                <div
+                    class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-5 card-hover">
+                    <div class="flex items-center justify-between mb-2"><span class="text-2xl">🧭</span><span
+                            class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">Python/JS</span>
+                    </div>
+                    <h3 class="font-bold text-gray-900 dark:text-white text-lg">Pathfinder</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Visualization tool for pathfinding
+                        algorithms using Markov Chains (Python/JavaScript).</p>
+                </div>
+                <div
+                    class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-5 card-hover">
+                    <div class="flex items-center justify-between mb-2"><span class="text-2xl">💧</span><span
+                            class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">CUDA</span>
+                    </div>
+                    <h3 class="font-bold text-gray-900 dark:text-white text-lg">Fluid Simulation</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">CUDA-based fluid flow simulation to learn
+                        GPU programming and parallel computing.</p>
+                </div>
+                <div
+                    class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-5 card-hover">
+                    <div class="flex items-center justify-between mb-2"><span class="text-2xl">🎮</span><span
+                            class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">Godot</span>
+                    </div>
+                    <h3 class="font-bold text-gray-900 dark:text-white text-lg">Plav voz</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Godot-based horror game because it was fun
+                        — narrative-driven experience.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div id="education" class="mb-12 scroll-mt-20">
+            <div class="border-l-4 border-indigo-500 pl-4 mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Education</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-6">
+                    <div class="flex items-start gap-3">
+                        <div class="bg-indigo-100 dark:bg-indigo-950/50 p-2 rounded-lg"><svg
+                                class="w-6 h-6 text-indigo-700 dark:text-indigo-400" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M12 14.25v-4.5m0 4.5a4.5 4.5 0 110-9m0 9a4.5 4.5 0 100-9m0 9v4.5m-9-4.5h18">
+                                </path>
+                            </svg></div>
+                        <div>
+                            <h3 class="font-bold text-gray-900 dark:text-white">Faculty of Computer Science and
+                                Engineering</h3>
+                            <p class="text-indigo-600 dark:text-indigo-400 text-sm">Ss. Cyril and Methodius University,
+                                Skopje</p>
+                            <p class="text-gray-500 dark:text-gray-400 text-xs mt-1">2021 – Present · Software
+                                Engineering and Information Systems</p>
+                            <a href="https://www.finki.ukim.mk/en/content/software-engineering-and-information-systems"
+                                target="_blank"
+                                class="text-xs text-indigo-500 dark:text-indigo-400 mt-2 inline-block">🔗 program
+                                details →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-6">
+                    <div class="flex items-start gap-3">
+                        <div class="bg-amber-50 dark:bg-amber-950/30 p-2 rounded-lg"><svg
+                                class="w-6 h-6 text-amber-600 dark:text-amber-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.25 5.25 0 007.5 15h9a5.25 5.25 0 002.507 4.993">
+                                </path>
+                            </svg></div>
+                        <div>
+                            <h3 class="font-bold text-gray-900 dark:text-white">S.O.U. Gim Mirce Acev, Prilep</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm">Math and Science Orientation</p>
+                            <p class="text-gray-500 dark:text-gray-400 text-xs mt-1">2017 – 2021 · High School Diploma
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GitHub CTA -->
+        <div
+            class="mt-10 bg-gradient-to-r from-indigo-50 to-white dark:from-indigo-950/40 dark:to-gray-900 rounded-2xl p-6 border border-indigo-100 dark:border-indigo-900/50 flex flex-wrap items-center justify-between gap-4 transition-colors">
+            <div>
+                <h3 class="font-semibold text-gray-900 dark:text-white">Explore more projects & contributions</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-400">All repositories available on GitHub — real-time
+                    coding, experiments, and collaborations.</p>
+            </div>
+            <a href="https://github.com/Marko534" target="_blank"
+                class="inline-flex items-center gap-2 rounded-lg bg-gray-900 dark:bg-indigo-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 dark:hover:bg-indigo-600 transition">GitHub
+                profile <span aria-hidden="true">→</span></a>
+        </div>
+    </main>
+
+    <footer
+        class="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 mt-12 py-8 transition-colors">
+        <div class="mx-auto max-w-7xl px-6 text-center text-xs text-gray-400 dark:text-gray-500">
+            <p>Marko Ilioski · CV built with Tailwind CSS · references available upon request</p>
+            <p class="mt-1">📬 markoilioski21@gmail.com | 📞 +389 75 813 355</p>
+        </div>
+    </footer>
+
+    <style>
+        .skill-badge {
+            @apply inline-flex items-center rounded-md bg-gray-50 dark:bg-gray-800 px-2.5 py-1 text-xs font-medium text-gray-700 dark:text-gray-300 ring-1 ring-inset ring-gray-500/20 dark:ring-gray-700;
+        }
+
+        @media (max-width: 640px) {
+            .skill-badge {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
 
     <script>
-        let currentOperand = '';
-        let previousOperand = '';
-        let operation = null;
+        (function () {
+            // AUTO DARK MODE: detect system preference + localStorage override
+            const storageKey = 'theme-preference';
+            const toggleBtn = document.getElementById('darkModeToggle');
+            const root = document.documentElement; // we use class 'dark' on body
+            const body = document.body;
 
-        function updateDisplay() {
-            const currentDisplay = document.getElementById('currentOperand');
-            const previousDisplay = document.getElementById('previousOperand');
+            // get initial theme: stored > system
+            const getStoredTheme = () => localStorage.getItem(storageKey);
+            const getSystemTheme = () => window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 
-            if (currentOperand === '') {
-                currentDisplay.textContent = '0';
+            const applyTheme = (theme) => {
+                if (theme === 'dark') {
+                    body.classList.add('dark');
+                } else {
+                    body.classList.remove('dark');
+                }
+                // update button icons handled by CSS (dark:block/none)
+            };
+
+            const setTheme = (theme) => {
+                applyTheme(theme);
+                localStorage.setItem(storageKey, theme);
+            };
+
+            // initial load
+            let stored = getStoredTheme();
+            if (stored) {
+                applyTheme(stored);
             } else {
-                currentDisplay.textContent = currentOperand;
+                const system = getSystemTheme();
+                applyTheme(system);
+                localStorage.setItem(storageKey, system);
             }
 
-            if (previousOperand !== '' && operation !== null) {
-                previousDisplay.textContent = `${previousOperand} ${getOperationSymbol(operation)}`;
-            } else {
-                previousDisplay.textContent = '';
-            }
-        }
+            // toggle handler: cycles light/dark
+            const handleToggle = () => {
+                const isDark = body.classList.contains('dark');
+                const newTheme = isDark ? 'light' : 'dark';
+                setTheme(newTheme);
+            };
 
-        function getOperationSymbol(op) {
-            switch (op) {
-                case '+': return '+';
-                case '-': return '-';
-                case '*': return '×';
-                case '/': return '÷';
-                default: return '';
-            }
-        }
-
-        function appendNumber(number) {
-            if (number === '.' && currentOperand.includes('.')) return;
-            if (currentOperand === '0' && number !== '.') {
-                currentOperand = number;
-            } else {
-                currentOperand += number;
-            }
-            updateDisplay();
-        }
-
-        function appendOperator(op) {
-            if (currentOperand === '') return;
-            if (previousOperand !== '') {
-                calculate();
-            }
-            operation = op;
-            previousOperand = currentOperand;
-            currentOperand = '';
-            updateDisplay();
-        }
-
-        function calculate() {
-            if (previousOperand === '' || currentOperand === '' || operation === null) return;
-
-            let result;
-            const prev = parseFloat(previousOperand);
-            const current = parseFloat(currentOperand);
-
-            if (isNaN(prev) || isNaN(current)) return;
-
-            switch (operation) {
-                case '+':
-                    result = prev + current;
-                    break;
-                case '-':
-                    result = prev - current;
-                    break;
-                case '*':
-                    result = prev * current;
-                    break;
-                case '/':
-                    if (current === 0) {
-                        alert('Cannot divide by zero!');
-                        clearDisplay();
-                        return;
-                    }
-                    result = prev / current;
-                    break;
-                default:
-                    return;
+            if (toggleBtn) {
+                toggleBtn.addEventListener('click', handleToggle);
             }
 
-            // Round to 10 decimal places to avoid floating point issues
-            currentOperand = Math.round(result * 10000000000) / 10000000000;
-            previousOperand = '';
-            operation = null;
-            updateDisplay();
-        }
-
-        function clearDisplay() {
-            currentOperand = '';
-            previousOperand = '';
-            operation = null;
-            updateDisplay();
-        }
-
-        function deleteLast() {
-            if (currentOperand === '') return;
-            currentOperand = currentOperand.slice(0, -1);
-            updateDisplay();
-        }
-
-        // Keyboard support
-        document.addEventListener('keydown', function (event) {
-            const key = event.key;
-
-            if (key >= '0' && key <= '9') {
-                appendNumber(key);
-            } else if (key === '.') {
-                appendNumber('.');
-            } else if (key === '+' || key === '-' || key === '*' || key === '/') {
-                appendOperator(key);
-            } else if (key === 'Enter' || key === '=') {
-                event.preventDefault();
-                calculate();
-            } else if (key === 'Escape') {
-                clearDisplay();
-            } else if (key === 'Backspace') {
-                deleteLast();
-            }
-        });
+            // optional: watch system preference changes if user hasn't manually set a preference? 
+            // we respect manual override, but if they clear localStorage we fallback to system.
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+                // only if no explicit storage (or you could re-apply when storage is null)
+                if (!localStorage.getItem(storageKey)) {
+                    const systemTheme = e.matches ? 'dark' : 'light';
+                    applyTheme(systemTheme);
+                }
+            });
+        })();
     </script>
 </body>
+
+</html>
