@@ -254,25 +254,57 @@
         <div id="projects" class="mb-12 scroll-mt-20">
             <div class="border-l-4 border-indigo-500 pl-4 mb-6">
                 <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Projects</h2>
-                <p class="text-gray-500 dark:text-gray-400 text-sm">Hands-on building & open source —
-                    href="https://github.com/Marko534" class="text-indigo-600 dark:text-indigo-400 hover:underline"
-                    target="_blank">github.com/Marko534</a></p>
+                <p class="text-gray-500 dark:text-gray-400 text-sm">
+                    Hands-on building & open source —
+                    <a href="https://github.com/Marko534" class="text-indigo-600 dark:text-indigo-400 hover:underline"
+                        target="_blank">github.com/Marko534</a>
+                </p>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                <a href="https://github.com/Marko534/godot-fluidsim-lbm" target="_blank" rel="noopener noreferrer"
-                    class="block transition-transform hover:scale-105">
-                    <div class="card">
-                        <img src="assets/images/pawprint12.png" alt="PawPrint preview" class="image">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-2xl">🍃</span>
-                            <span
-                                class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">Godot/GLSL</span>
+            <div class="bg-white dark:bg-gray-950 mb-6">
+                <div
+                    class="card mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-6 sm:px-6 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+                    <div>
+                        <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+                            🍃 Godot LBM Wind Simulation
+                        </h2>
+                        <p class="mt-4 text-gray-500 dark:text-gray-400">
+                            A real-time 3D wind simulation using the Lattice Boltzmann Method (LBM), implemented
+                            entirely on the GPU via Godot's <code
+                                class="text-indigo-600 dark:text-indigo-400">RenderingDevice</code> compute shaders.
+                            Wind data is stored in a 3D texture and consumed by material shaders and particle systems
+                            with no CPU readback.
+                        </p>
+
+                        <dl class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
+                            <div class="border-t border-gray-200 dark:border-gray-700 pt-4">
+                                <dt class="font-medium text-gray-900 dark:text-white">Engine & Stack</dt>
+                                <dd class="mt-2 text-sm text-gray-500 dark:text-gray-400">Godot 4.6 (Vulkan/Forward+),
+                                    GDScript, GLSL compute shaders, RenderingDevice API</dd>
+                            </div>
+                            <div class="border-t border-gray-200 dark:border-gray-700 pt-4">
+                                <dt class="font-medium text-gray-900 dark:text-white">Grid & Boundaries</dt>
+                                <dd class="mt-2 text-sm text-gray-500 dark:text-gray-400">64×32×64, D3Q19, TRT collision
+                                    — Wetnode edges, Bounce-back terrain</dd>
+                            </div>
+                        </dl>
+
+                        <div class="mt-10">
+                            <a href="https://github.com/Marko534/godot-fluidsim-lbm" target="_blank"
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center gap-2 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline">
+                                View on GitHub →
+                            </a>
                         </div>
-                        <h3 class="font-bold text-gray-900 dark:text-white text-lg">Godot LBM wind</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Wind sim using godot and LBM.</p>
                     </div>
-                </a>
+
+                    <img src="https://tailwindcss.com/plus-assets/img/ecommerce-images/product-feature-03-detail-01.jpg"
+                        alt="Godot LBM Wind Simulation preview"
+                        class="bg-gray-100 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 w-full object-cover rounded-lg mb-3" />
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
                 <a href="https://github.com/m1thrandir225/pawprint" target="_blank" rel="noopener noreferrer"
                     class="block transition-transform hover:scale-105">
