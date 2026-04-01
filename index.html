@@ -261,146 +261,155 @@
                 </p>
             </div>
 
-            <div class="bg-white dark:bg-gray-950 mb-6">
-                <div
-                    class="card mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-6 sm:px-6 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
-                    <div>
-                        <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-                            🍃 Godot LBM Wind Simulation
-                        </h2>
-                        <p class="mt-4 text-gray-500 dark:text-gray-400">
-                            A real-time 3D wind simulation using the Lattice Boltzmann Method (LBM), implemented
-                            entirely on the GPU via Godot's <code
-                                class="text-indigo-600 dark:text-indigo-400">RenderingDevice</code> compute shaders.
-                            Wind data is stored in a 3D texture and consumed by material shaders and particle systems
-                            with no CPU readback.
-                        </p>
+            <div
+                class="card mx-auto grid max-w-none grid-cols-1 gap-x-8 gap-y-6 px-4 py-6 sm:px-6 lg:px-8 lg:grid-cols-2 mb-6">
 
-                        <dl class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
-                            <div class="border-t border-gray-200 dark:border-gray-700 pt-4">
-                                <dt class="font-medium text-gray-900 dark:text-white">Engine & Stack</dt>
-                                <dd class="mt-2 text-sm text-gray-500 dark:text-gray-400">Godot 4.6 (Vulkan/Forward+),
-                                    GDScript, GLSL compute shaders, RenderingDevice API</dd>
-                            </div>
-                            <div class="border-t border-gray-200 dark:border-gray-700 pt-4">
-                                <dt class="font-medium text-gray-900 dark:text-white">Grid & Boundaries</dt>
-                                <dd class="mt-2 text-sm text-gray-500 dark:text-gray-400">64×32×64, D3Q19, TRT collision
-                                    — Wetnode edges, Bounce-back terrain</dd>
-                            </div>
-                        </dl>
-
-                        <div class="mt-10">
-                            <a href="https://github.com/Marko534/godot-fluidsim-lbm" target="_blank"
-                                rel="noopener noreferrer"
-                                class="inline-flex items-center gap-2 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline">
-                                View on GitHub →
-                            </a>
-                        </div>
-                    </div>
-
+                <!-- Left: image + title styled like project cards -->
+                <div>
                     <img src="https://tailwindcss.com/plus-assets/img/ecommerce-images/product-feature-03-detail-01.jpg"
-                        alt="Godot LBM Wind Simulation preview"
-                        class="bg-gray-100 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 w-full object-cover rounded-lg mb-3" />
+                        alt="Godot LBM Wind Simulation preview" class="image">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-2xl">🍃</span>
+                        <span
+                            class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">Godot/GLSL</span>
+                    </div>
+                    <h3 class="font-bold text-gray-900 dark:text-white text-lg">Godot LBM Wind Simulation</h3>
                 </div>
+
+                <!-- Right: description, specs, link -->
+                <div class="flex flex-col justify-center">
+                    <p class="text-gray-500 dark:text-gray-400">
+                        A real-time 3D wind simulation using the Lattice Boltzmann Method (LBM), implemented
+                        entirely on the GPU via Godot's <code
+                            class="text-indigo-600 dark:text-indigo-400">RenderingDevice</code> compute shaders.
+                        Wind data is stored in a 3D texture and consumed by material shaders and particle systems with
+                        no CPU readback.
+                    </p>
+                    <dl class="mt-6 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
+                        <div class="border-t border-gray-200 dark:border-gray-700 pt-4">
+                            <dt class="font-medium text-gray-900 dark:text-white">Engine & Stack</dt>
+                            <dd class="mt-2 text-sm text-gray-500 dark:text-gray-400">Godot 4.6 (Vulkan/Forward+),
+                                GDScript, GLSL compute shaders, RenderingDevice API</dd>
+                        </div>
+                        <div class="border-t border-gray-200 dark:border-gray-700 pt-4">
+                            <dt class="font-medium text-gray-900 dark:text-white">Grid & Boundaries</dt>
+                            <dd class="mt-2 text-sm text-gray-500 dark:text-gray-400">64×32×64, D3Q19, TRT collision —
+                                Wetnode edges, Bounce-back terrain</dd>
+                        </div>
+                    </dl>
+                    <div class="mt-6">
+                        <a href="https://github.com/Marko534/godot-fluidsim-lbm" target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline">
+                            View on GitHub →
+                        </a>
+                    </div>
+                </div>
+
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                <a href="https://github.com/m1thrandir225/pawprint" target="_blank" rel="noopener noreferrer"
-                    class="block transition-transform hover:scale-105">
-                    <div class="card">
-                        <img src="assets/images/pawprint1.png" alt="PawPrint preview" class="image">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-2xl">🐾</span>
-                            <span
-                                class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">.NET
-                                Core</span>
-                        </div>
-                        <h3 class="font-bold text-gray-900 dark:text-white text-lg">PawPrint</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Pet adoption app using .NET Core and
-                            PostgreSQL. Gained experience in REST APIs and team collaboration.</p>
+                <div class="card">
+                    <img src="assets/images/pawprint1.png" alt="PawPrint preview" class="image">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-2xl">🐾</span>
+                        <span
+                            class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">.NET
+                            Core</span>
                     </div>
-                </a>
+                    <h3 class="font-bold text-gray-900 dark:text-white text-lg">PawPrint</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Pet adoption app using .NET Core and
+                        PostgreSQL. Gained experience in REST APIs and team collaboration.</p>
+                    <a href="https://github.com/m1thrandir225/pawprint" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline mt-4">
+                        View on GitHub →
+                    </a>
+                </div>
 
-                <a href="https://github.com/Marko534/VulkanTest" target="_blank" rel="noopener noreferrer"
-                    class="block transition-transform hover:scale-105">
-                    <div class="card">
-                        <img src="assets/images/blender1.png" alt="BlenderLikeProgram preview" class="image">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-2xl">🖥️</span>
-                            <span
-                                class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">Vulkan/C++</span>
-                        </div>
-                        <h3 class="font-bold text-gray-900 dark:text-white text-lg">BlenderLikeProgram</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">3D modeling application with Vulkan and
-                            C++. Focused on backend and low-level graphics pipeline.</p>
+                <div class="card">
+                    <img src="assets/images/blender1.png" alt="BlenderLikeProgram preview" class="image">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-2xl">🖥️</span>
+                        <span
+                            class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">Vulkan/C++</span>
                     </div>
-                </a>
+                    <h3 class="font-bold text-gray-900 dark:text-white text-lg">BlenderLikeProgram</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">3D modeling application with Vulkan and
+                        C++. Focused on backend and low-level graphics pipeline.</p>
+                    <a href="https://github.com/Marko534/VulkanTest" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline mt-4">
+                        View on GitHub →
+                    </a>
+                </div>
 
-                <a href="https://github.com/Marko534/pita" target="_blank" rel="noopener noreferrer"
-                    class="block transition-transform hover:scale-105">
-                    <div class="card">
-                        <img src="assets/images/pita.png" alt="Pita preview" class="image">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-2xl">📸</span>
-                            <span
-                                class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">Raspberry
-                                Pi</span>
-                        </div>
-                        <h3 class="font-bold text-gray-900 dark:text-white text-lg">Pita</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Custom Raspberry Pi camera with touch
-                            screen UI, supporting 4K video and photos.</p>
+                <div class="card">
+                    <img src="assets/images/pita.png" alt="Pita preview" class="image">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-2xl">📸</span>
+                        <span
+                            class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">Raspberry
+                            Pi</span>
                     </div>
-                </a>
+                    <h3 class="font-bold text-gray-900 dark:text-white text-lg">Pita</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Custom Raspberry Pi camera with touch
+                        screen UI, supporting 4K video and photos.</p>
+                    <a href="https://github.com/Marko534/pita" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline mt-4">
+                        View on GitHub →
+                    </a>
+                </div>
 
-                <a href="https://github.com/Marko534/pathfinder" target="_blank" rel="noopener noreferrer"
-                    class="block transition-transform hover:scale-105">
-                    <div class="card">
-                        <img src="assets/images/pathfinder.png" alt="Pathfinder preview" class="image">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-2xl">🧭</span>
-                            <span
-                                class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">JS</span>
-                        </div>
-                        <h3 class="font-bold text-gray-900 dark:text-white text-lg">Pathfinder</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Visualization tool for pathfinding
-                            algorithms using Markov Chains (JavaScript).</p>
+                <div class="card">
+                    <img src="assets/images/pathfinder.png" alt="Pathfinder preview" class="image">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-2xl">🧭</span>
+                        <span
+                            class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">JS</span>
                     </div>
-                </a>
+                    <h3 class="font-bold text-gray-900 dark:text-white text-lg">Pathfinder</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Visualization tool for pathfinding
+                        algorithms using Markov Chains (JavaScript).</p>
+                    <a href="https://github.com/Marko534/pathfinder" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline mt-4">
+                        View on GitHub →
+                    </a>
+                </div>
 
-                <a href="https://github.com/Marko534/CudaFluidSim" target="_blank" rel="noopener noreferrer"
-                    class="block transition-transform hover:scale-105">
-                    <div class="card">
-                        <img src="assets/images/fluid sim.png" alt="Fluid Simulation preview" class="image">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-2xl">🌊</span>
-                            <span
-                                class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">CUDA</span>
-                        </div>
-                        <h3 class="font-bold text-gray-900 dark:text-white text-lg">Fluid Simulation</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">CUDA-based fluid flow simulation to
-                            learn GPU programming and parallel computing.</p>
+                <div class="card">
+                    <img src="assets/images/fluid sim.png" alt="Fluid Simulation preview" class="image">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-2xl">🌊</span>
+                        <span
+                            class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">CUDA</span>
                     </div>
-                </a>
+                    <h3 class="font-bold text-gray-900 dark:text-white text-lg">Fluid Simulation</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">CUDA-based fluid flow simulation to learn
+                        GPU programming and parallel computing.</p>
+                    <a href="https://github.com/Marko534/CudaFluidSim" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline mt-4">
+                        View on GitHub →
+                    </a>
+                </div>
 
-                <a href="https://github.com/ph4nt0m37x/Plavi-Voz" target="_blank" rel="noopener noreferrer"
-                    class="block transition-transform hover:scale-105">
-                    <div class="card">
-                        <img src="assets/images/plav voz.png" alt="Plav voz preview" class="image">
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-2xl">🎮</span>
-                            <span
-                                class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">Godot</span>
-                        </div>
-                        <h3 class="font-bold text-gray-900 dark:text-white text-lg">Plav voz</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Godot-based horror game because it was
-                            fun — narrative-driven experience.</p>
+                <div class="card">
+                    <img src="assets/images/plav voz.png" alt="Plav voz preview" class="image">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-2xl">🎮</span>
+                        <span
+                            class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">Godot</span>
                     </div>
-                </a>
+                    <h3 class="font-bold text-gray-900 dark:text-white text-lg">Plav voz</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Godot-based horror game because it was fun
+                        — narrative-driven experience.</p>
+                    <a href="https://github.com/ph4nt0m37x/Plavi-Voz" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline mt-4">
+                        View on GitHub →
+                    </a>
+                </div>
 
             </div>
         </div>
-
         <!-- Education -->
         <div id="education" class="mb-12 scroll-mt-20">
             <div class="border-l-4 border-indigo-500 pl-4 mb-6">
@@ -419,7 +428,8 @@
                         <div>
                             <h3 class="font-bold text-gray-900 dark:text-white">Faculty of Computer Science and
                                 Engineering</h3>
-                            <p class="text-indigo-600 dark:text-indigo-400 text-sm">Ss. Cyril and Methodius University,
+                            <p class="text-indigo-600 dark:text-indigo-400 text-sm">Ss. Cyril and Methodius
+                                University,
                                 Skopje</p>
                             <p class="text-gray-500 dark:text-gray-400 text-xs mt-1">2021 – Present · Software
                                 Engineering and Information Systems</p>
@@ -443,7 +453,8 @@
                         <div>
                             <h3 class="font-bold text-gray-900 dark:text-white">S.O.U. Gim Mirce Acev, Prilep</h3>
                             <p class="text-gray-600 dark:text-gray-300 text-sm">Math and Science Orientation</p>
-                            <p class="text-gray-500 dark:text-gray-400 text-xs mt-1">2017 – 2021 · High School Diploma
+                            <p class="text-gray-500 dark:text-gray-400 text-xs mt-1">2017 – 2021 · High School
+                                Diploma
                             </p>
                         </div>
                     </div>
