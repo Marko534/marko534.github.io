@@ -9,6 +9,7 @@
     --font-sans: "Montserrat Variable", sans-serif;
     --font-mono: "HurmitNerdFont", monospace;
 } */
+/* @custom-variant dark (&:where(.dark, .dark *)); */
 
 @theme {
     --color-bg_l: var(--color-gray-100);
@@ -24,11 +25,19 @@
 
 @layer components {
     .bg-color {
-        @apply bg-bg_l dark:bg-bg_d transition-colors duration-1000;
+        @apply bg-bg_l dark:bg-bg_d transition-colors duration-100;
+    }
+
+    .fg-color {
+        @apply bg-fg_l dark:bg-fg_d transition-colors duration-100;
     }
 
     .card {
         @apply bg-fg_l dark:bg-fg_d rounded-xl border border-bd_l dark:border-bd_d p-5 transition-all hover:shadow-xl hover:bg-gray-300 hover:border-gray-400 hover:dark:bg-gray-700 hover:dark:border-gray-700 hover:-translate-y-1;
+    }
+
+    .card-static {
+        @apply bg-fg_l dark:bg-fg_d transition-colors duration-100 rounded-xl border border-bd_l dark:border-bd_d p-5;
     }
 
     .image {
@@ -55,8 +64,13 @@
         @apply text-2xl font-bold text-gray-900 dark:text-white;
     }
 
-    .section-subtitle {
-        @apply text-gray-500 dark:text-gray-400 text-sm mt-1;
+    .card-title {
+        @apply text-xl font-bold text-gray-900 dark:text-white;
+        /* font-bold text-gray-900 dark:text-white text-lg */
+    }
+
+    .small-text {
+        @apply text-sm text-gray-600 dark:text-gray-400 mt-2;
     }
 
     /* Skill badges  TODO */
@@ -64,8 +78,4 @@
         @apply bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs font-medium px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700;
     }
 
-    /* Experience / content cards (white, not gray) */
-    .content-card {
-        @apply bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm p-6 transition-colors;
-    }
 }

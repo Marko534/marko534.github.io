@@ -10,12 +10,14 @@
     <!-- Tailwind CSS v4 -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
 
-    <script>
-        if (localStorage.getItem('theme') === 'dark' ||
-            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        }
-    </script>
+    <!-- <script>
+        document.documentElement.classList.toggle(
+            "dark",
+            localStorage.theme === "dark" ||
+            (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
+        );
+
+    </script> -->
 
     <link rel="stylesheet" href="dist/output.css">
 </head>
@@ -24,8 +26,7 @@
 <body class="antialiased bg-color">
     <!-- <a href="src/components.html">TEST</a> -->
     <!-- HEADER (same as before) -->
-    <header
-        class="bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 sticky top-0 z-20 shadow-sm transition-colors">
+    <header class="fg-color border-b border-bd_l dark:border-bd_d sticky top-0 z-20 shadow-sm transition-colors">
         <div class="mx-auto max-w-7xl px-6 lg:px-8 py-4 flex items-center justify-between flex-wrap gap-3">
             <div class="flex items-center gap-3">
                 <div
@@ -46,7 +47,7 @@
                 </div>
                 <!-- DARK MODE TOGGLE BUTTON -->
                 <button id="darkModeToggle" aria-label="Toggle dark mode"
-                    class="relative p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                    class="relative p-2 rounded-full fg-color dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
                     <svg id="sunIcon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor"
                         viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -67,79 +68,76 @@
     <main class="mx-auto max-w-5xl px-6 lg:px-8 py-10 lg:py-12">
 
         <!-- HERO / INTRO CARD (profile summary) -->
-        <div
-            class="bg-white dark:bg-gray-900 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden mb-10 transition-colors">
-            <div class="p-6 sm:p-8">
-                <div class="flex flex-col md:flex-row md:items-start gap-6">
-                    <div class="flex-1">
-                        <!-- <div
-                            class="inline-flex items-center rounded-full bg-indigo-50 dark:bg-indigo-950/60 px-3 py-1 text-xs font-medium text-indigo-700 dark:text-indigo-300 ring-1 ring-inset ring-indigo-700/10 dark:ring-indigo-400/30 mb-4">
-                            ✨ open for opportunities</div> -->
-                        <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">Marko
-                            Ilioski</h2>
-                        <p class="text-lg text-indigo-600 dark:text-indigo-400 font-medium mt-1">Data Engineer &
-                            Software Developer</p>
-                        <div class="mt-4 flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-300">
+        <div class="section-header">
+            <h1 class="section-title text-4xl">Marko
+                Ilioski</h1>
+            <p class="small-text">Data Engineer &
+                Software Developer</p>
+        </div>
+        <div class="card-static mb-4">
+            <div class="flex flex-col md:flex-row md:items-start gap-6">
+                <div class="flex-1">
+                    <h3 class="card-title">
+                        Get in touch!</h3>
+                    <div class="mt-4 flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-300">
 
-                            <span class="flex items-center gap-1.5">
-                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-phone-icon lucide-phone">
-                                    <path
-                                        d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" />
-                                </svg>
-                                <a href="tel:+38975813355" class="link !mt-0">+389 75 813 355</a>
-                            </span>
+                        <span class="flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-phone-icon lucide-phone">
+                                <path
+                                    d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" />
+                            </svg>
+                            <a href="tel:+38975813355" class="link !mt-0">+389 75 813 355</a>
+                        </span>
 
-                            <span class="flex items-center gap-1.5">
-                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="lucide lucide-mail-icon lucide-mail">
-                                    <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
-                                    <rect x="2" y="4" width="20" height="16" rx="2" />
-                                </svg>
-                                <a href="mailto:markoilioski21@gmail.com"
-                                    class="link !mt-0">markoilioski21@gmail.com</a>
-                            </span>
+                        <span class="flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-mail-icon lucide-mail">
+                                <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+                                <rect x="2" y="4" width="20" height="16" rx="2" />
+                            </svg>
+                            <a href="mailto:markoilioski21@gmail.com" class="link !mt-0">markoilioski21@gmail.com</a>
+                        </span>
 
-                            <span class="flex items-center gap-1.5">
-                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" fill="currentColor"
-                                    viewBox="0 0 128 128">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M64 5.103c-33.347 0-60.388 27.035-60.388 60.388 0 26.682 17.303 49.317 41.297 57.303 3.017.56 4.125-1.31 4.125-2.905 0-1.44-.056-6.197-.082-11.243-16.8 3.653-20.345-7.125-20.345-7.125-2.747-6.98-6.705-8.836-6.705-8.836-5.48-3.748.413-3.67.413-3.67 6.063.425 9.257 6.223 9.257 6.223 5.386 9.23 14.127 6.562 17.573 5.02.542-3.903 2.107-6.568 3.834-8.076-13.413-1.525-27.514-6.704-27.514-29.843 0-6.593 2.36-11.98 6.223-16.21-.628-1.52-2.695-7.662.584-15.98 0 0 5.07-1.623 16.61 6.19C53.7 35 58.867 34.327 64 34.304c5.13.023 10.3.694 15.127 2.033 11.526-7.813 16.59-6.19 16.59-6.19 3.287 8.317 1.22 14.46.593 15.98 3.872 4.23 6.215 9.617 6.215 16.21 0 23.194-14.127 28.3-27.574 29.796 2.167 1.874 4.097 5.55 4.097 11.183 0 8.08-.07 14.583-.07 16.572 0 1.607 1.088 3.49 4.148 2.897 23.98-7.994 41.263-30.622 41.263-57.294C124.388 32.14 97.35 5.104 64 5.104z">
-                                    </path>
-                                </svg>
-                                <a href="https://github.com/Marko534" target="_blank" class="link !mt-0">Marko534</a>
-                            </span>
+                        <span class="flex items-center gap-1.5">
+                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" fill="currentColor"
+                                viewBox="0 0 128 128">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M64 5.103c-33.347 0-60.388 27.035-60.388 60.388 0 26.682 17.303 49.317 41.297 57.303 3.017.56 4.125-1.31 4.125-2.905 0-1.44-.056-6.197-.082-11.243-16.8 3.653-20.345-7.125-20.345-7.125-2.747-6.98-6.705-8.836-6.705-8.836-5.48-3.748.413-3.67.413-3.67 6.063.425 9.257 6.223 9.257 6.223 5.386 9.23 14.127 6.562 17.573 5.02.542-3.903 2.107-6.568 3.834-8.076-13.413-1.525-27.514-6.704-27.514-29.843 0-6.593 2.36-11.98 6.223-16.21-.628-1.52-2.695-7.662.584-15.98 0 0 5.07-1.623 16.61 6.19C53.7 35 58.867 34.327 64 34.304c5.13.023 10.3.694 15.127 2.033 11.526-7.813 16.59-6.19 16.59-6.19 3.287 8.317 1.22 14.46.593 15.98 3.872 4.23 6.215 9.617 6.215 16.21 0 23.194-14.127 28.3-27.574 29.796 2.167 1.874 4.097 5.55 4.097 11.183 0 8.08-.07 14.583-.07 16.572 0 1.607 1.088 3.49 4.148 2.897 23.98-7.994 41.263-30.622 41.263-57.294C124.388 32.14 97.35 5.104 64 5.104z">
+                                </path>
+                            </svg>
+                            <a href="https://github.com/Marko534" target="_blank" class="link !mt-0">Marko534</a>
+                        </span>
 
-                        </div>
-                        <!-- professional summary block -->
-                        <div class="mt-6 pt-4 border-t border-gray-100 dark:border-gray-800">
-                            <h3 class="text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wide">
-                                Professional Summary</h3>
-                            <p class="mt-2 text-gray-700 dark:text-gray-300 leading-relaxed">Software Developer with
-                                experience in data engineering, backend development, and system optimization. Skilled in
-                                Python, SQL, C++, Google Cloud, and Linux. Passionate about learning new technologies
-                                and solving complex problems through hands-on projects (and cooking).</p>
-                        </div>
                     </div>
+                    <!-- professional summary block -->
 
                 </div>
             </div>
         </div>
+        <div class="card-static mb-8">
+            <h3 class="card-title">
+                Professional Summary</h3>
+            <p class="small-text">Software Developer with
+                experience in data engineering, backend development, and system optimization. Skilled in
+                Python, SQL, C++, Google Cloud, and Linux. Passionate about learning new technologies
+                and solving complex problems through hands-on projects (and cooking).</p>
+        </div>
 
         <!-- WORK EXPERIENCE -->
-        <div id="experience" class="mb-12 scroll-mt-20">
+        <div id="experience" class="mb-8 ">
             <div class="section-header">
                 <h2 class="section-title">Work Experience</h2>
-                <p class="section-subtitle">Industry exposure & impactful contributions</p>
+                <p class="small-text">Industry exposure & impactful contributions</p>
             </div>
-            <div class="space-y-8">
+            <div class="space-y-4">
                 <!-- Involve -->
-                <div class="content-card card-hover">
+                <div class="card">
                     <div class="flex flex-wrap justify-between items-start gap-2">
                         <div>
-                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Data Engineer · Involve</h3>
+                            <h3 class="card-title">Data Engineer · Involve</h3>
                             <p class="text-indigo-600 dark:text-indigo-400 text-sm font-medium">Feb 2025 – Aug 2025</p>
                         </div>
                         <span
@@ -148,8 +146,7 @@
                                 class="text-indigo-600 dark:text-indigo-400 hover:underline" target="_blank">Klimentina
                                 Ratkova</a></span>
                     </div>
-                    <ul
-                        class="mt-4 space-y-2 text-gray-700 dark:text-gray-300 text-sm list-disc pl-5 marker:text-indigo-400">
+                    <ul class="small-text space-y-2 list-disc pl-5 marker:text-indigo-400">
                         <li>Migrated system from daily to hourly updates, optimizing Google Cloud Platform to reduce
                             costs by <strong class="font-semibold">90%</strong>.</li>
                         <li>Integrated data from Google Ads and internal sales, enabling regional profit analysis and
@@ -159,16 +156,14 @@
                     </ul>
                 </div>
                 <!-- Aspect Intern -->
-                <div
-                    class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm p-6 card-hover">
+                <div class="card">
                     <div class="flex flex-wrap justify-between items-start gap-2">
                         <div>
-                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Intern · Aspect</h3>
+                            <h3 class="card-title">Intern · Aspect</h3>
                             <p class="text-indigo-600 dark:text-indigo-400 text-sm font-medium">Jul 2023 – Sep 2023</p>
                         </div>
                     </div>
-                    <ul
-                        class="mt-4 space-y-2 text-gray-700 dark:text-gray-300 text-sm list-disc pl-5 marker:text-indigo-400">
+                    <ul class="small-text space-y-2 list-disc pl-5 marker:text-indigo-400">
                         <li>Developed C# applications and managed SQL databases, using RabbitMQ for real-time messaging
                             pipelines.</li>
                         <li>Optimized OpenXML data insertion, reducing processing time significantly for large document
@@ -177,16 +172,14 @@
                     </ul>
                 </div>
                 <!-- InterWorks -->
-                <div
-                    class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm p-6 card-hover">
+                <div class="card">
                     <div class="flex flex-wrap justify-between items-start gap-2">
                         <div>
-                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Intern · InterWorks</h3>
+                            <h3 class="card-title">Intern · InterWorks</h3>
                             <p class="text-indigo-600 dark:text-indigo-400 text-sm font-medium">Jul 2022 – Aug 2022</p>
                         </div>
                     </div>
-                    <ul
-                        class="mt-4 space-y-2 text-gray-700 dark:text-gray-300 text-sm list-disc pl-5 marker:text-indigo-400">
+                    <ul class="small-text space-y-2 list-disc pl-5 marker:text-indigo-400">
                         <li>Automated data processing with Python (pandas, numpy) and optimized SQL queries for faster
                             ETL.</li>
                         <li>Developed scripts for data visualization and database automation, improving reporting
@@ -197,15 +190,14 @@
         </div>
 
         <!-- Technical Skills: badge grid style -->
-        <div id="skills" class="mb-12 scroll-mt-20">
+        <div id="skills" class="mb-8 ">
             <div class="section-header">
                 <h2 class="section-title">Technical Skills</h2>
-                <p class="text-gray-500 dark:text-gray-400 text-sm">Tools, languages & frameworks I work with</p>
+                <p class="small-text">Tools, languages & frameworks I work with</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-5">
-                    <h3 class="font-semibold text-gray-800 dark:text-gray-200 flex items-center gap-2"><span
-                            class="text-indigo-500">▹</span> Languages</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="card-static">
+                    <h3 class="card-title"><span class="text-indigo-500">▹</span> Languages</h3>
                     <div class="flex flex-wrap gap-2 mt-3">
                         <span class="skill-badge">Python</span>
                         <span class="skill-badge">SQL</span><span class="skill-badge">Java</span><span
@@ -215,17 +207,15 @@
                         <span class="skill-badge">PHP</span><span class="skill-badge">bash</span>
                     </div>
                 </div>
-                <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-5">
-                    <h3 class="font-semibold text-gray-800 dark:text-gray-200 flex items-center gap-2"><span
-                            class="text-indigo-500">▹</span> Data Science & ML</h3>
+                <div class="card-static">
+                    <h3 class="card-title"><span class="text-indigo-500">▹</span> Data Science & ML</h3>
                     <div class="flex flex-wrap gap-2 mt-3">
                         <span class="skill-badge">Pandas</span><span class="skill-badge">NumPy</span><span
                             class="skill-badge">Scikit-learn</span>
                         <span class="skill-badge">TensorFlow</span><span class="skill-badge">PyTorch</span><span
                             class="skill-badge">Spark</span><span class="skill-badge">CUDA</span>
                     </div>
-                    <h3 class="font-semibold text-gray-800 dark:text-gray-200 mt-4 flex items-center gap-2"><span
-                            class="text-indigo-500">▹</span> Frameworks & Cloud</h3>
+                    <h3 class="card-title mt-4"><span class="text-indigo-500">▹</span> Frameworks & Cloud</h3>
                     <div class="flex flex-wrap gap-2 mt-2">
                         <span class="skill-badge">Laravel</span><span class="skill-badge">Spring</span><span
                             class="skill-badge">.NET</span>
@@ -237,9 +227,9 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-4 bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 p-5">
-                <h3 class="font-semibold text-gray-800 dark:text-gray-200">🌐 Languages</h3>
-                <div class="flex flex-wrap gap-6 mt-2 text-sm text-gray-700 dark:text-gray-300">
+            <div class="mt-4 card-static">
+                <h3 class="card-title">🌐 Languages</h3>
+                <div class="gap-6 mt-2 small-text">
                     <span>🇲🇰 Macedonian (Native)</span>
                     <span>🇬🇧 English (Fluent)</span>
                     <span>🇩🇪 German (A2)</span>
@@ -248,10 +238,11 @@
         </div>
 
         <!-- Projects section -->
-        <div id="projects" class="mb-12 scroll-mt-20">
+        <!-- mb doesn't do anything -->
+        <div id="projects" class="mb-8 ">
             <div class="section-header">
                 <h2 class="section-title">Projects</h2>
-                <p class="text-gray-500 dark:text-gray-400 text-sm">
+                <p class="small-text">
                     Hands-on building & open source —
                     <a href="https://github.com/Marko534" class="text-indigo-600 dark:text-indigo-400 hover:underline"
                         target="_blank">github.com/Marko534</a>
@@ -259,7 +250,7 @@
             </div>
 
             <div
-                class="card mx-auto grid max-w-none grid-cols-1 gap-x-8 gap-y-6 px-4 py-6 sm:px-6 lg:px-8 lg:grid-cols-2 mb-6">
+                class="card mx-auto grid max-w-none grid-cols-1 gap-x-8 gap-y-6 px-4 py-6 sm:px-6 lg:px-8 lg:grid-cols-2 mb-4">
 
                 <!-- Left: image + title styled like project cards -->
                 <div>
@@ -270,7 +261,7 @@
                         <span
                             class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">Godot/GLSL</span>
                     </div>
-                    <h3 class="font-bold text-gray-900 dark:text-white text-lg">Godot LBM Wind Simulation</h3>
+                    <h3 class="card-title">Godot LBM Wind Simulation</h3>
                 </div>
 
                 <!-- Right: description, specs, link -->
@@ -304,7 +295,7 @@
 
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
                 <div class="card">
                     <img src="assets/images/pawprint1.png" alt="PawPrint preview" class="image">
@@ -314,8 +305,8 @@
                             class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">.NET
                             Core</span>
                     </div>
-                    <h3 class="font-bold text-gray-900 dark:text-white text-lg">PawPrint</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Pet adoption app using .NET Core and
+                    <h3 class="card-title">PawPrint</h3>
+                    <p class="small-text">Pet adoption app using .NET Core and
                         PostgreSQL. Gained experience in REST APIs and team collaboration.</p>
                     <a href="https://github.com/m1thrandir225/pawprint" target="_blank" rel="noopener noreferrer"
                         class="link">
@@ -330,8 +321,8 @@
                         <span
                             class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">Vulkan/C++</span>
                     </div>
-                    <h3 class="font-bold text-gray-900 dark:text-white text-lg">BlenderLikeProgram</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">3D modeling application with Vulkan and
+                    <h3 class="card-title">BlenderLikeProgram</h3>
+                    <p class="small-text">3D modeling application with Vulkan and
                         C++. Focused on backend and low-level graphics pipeline.</p>
                     <a href="https://github.com/Marko534/VulkanTest" target="_blank" rel="noopener noreferrer"
                         class="link">
@@ -347,8 +338,8 @@
                             class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">Raspberry
                             Pi</span>
                     </div>
-                    <h3 class="font-bold text-gray-900 dark:text-white text-lg">Pita</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Custom Raspberry Pi camera with touch
+                    <h3 class="card-title">Pita</h3>
+                    <p class="small-text">Custom Raspberry Pi camera with touch
                         screen UI, supporting 4K video and photos.</p>
                     <a href="https://github.com/Marko534/pita" target="_blank" rel="noopener noreferrer" class="link">
                         View on GitHub →
@@ -362,8 +353,8 @@
                         <span
                             class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">JS</span>
                     </div>
-                    <h3 class="font-bold text-gray-900 dark:text-white text-lg">Pathfinder</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Visualization tool for pathfinding
+                    <h3 class="card-title">Pathfinder</h3>
+                    <p class="small-text">Visualization tool for pathfinding
                         algorithms using Markov Chains (JavaScript).</p>
                     <a href="https://github.com/Marko534/pathfinder" target="_blank" rel="noopener noreferrer"
                         class="link">
@@ -378,8 +369,8 @@
                         <span
                             class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">CUDA</span>
                     </div>
-                    <h3 class="font-bold text-gray-900 dark:text-white text-lg">Fluid Simulation</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">CUDA-based fluid flow simulation to learn
+                    <h3 class="card-title">Fluid Simulation</h3>
+                    <p class="small-text">CUDA-based fluid flow simulation to learn
                         GPU programming and parallel computing.</p>
                     <a href="https://github.com/Marko534/CudaFluidSim" target="_blank" rel="noopener noreferrer"
                         class="link">
@@ -394,8 +385,8 @@
                         <span
                             class="text-xs text-gray-400 dark:text-gray-500 bg-gray-50 dark:bg-gray-800 px-2 py-0.5 rounded-full">Godot</span>
                     </div>
-                    <h3 class="font-bold text-gray-900 dark:text-white text-lg">Plav voz</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Godot-based horror game because it was fun
+                    <h3 class="card-title">Plav voz</h3>
+                    <p class="small-text">Godot-based horror game because it was fun
                         — narrative-driven experience.</p>
                     <a href="https://github.com/ph4nt0m37x/Plavi-Voz" target="_blank" rel="noopener noreferrer"
                         class="link">
@@ -406,13 +397,13 @@
             </div>
         </div>
         <!-- Education -->
-        <div id="education" class="mb-12 scroll-mt-20">
+        <div id="education" class="mb-12 ">
             <div class="section-header">
                 <h2 class="section-title">Education</h2>
             </div>
-            <div class="grid md:grid-cols-2 gap-6">
+            <div class="grid md:grid-cols-2 gap-4">
                 <div class="card">
-                    <div class="flex items-start gap-3">
+                    <div class="flex items-start gap-4">
                         <div class="bg-indigo-100 dark:bg-indigo-950/50 p-2 rounded-lg"><svg
                                 class="w-6 h-6 text-indigo-700 dark:text-indigo-400" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24">
@@ -466,13 +457,12 @@
                     coding, experiments, and collaborations.</p>
             </div>
             <a href="https://github.com/Marko534" target="_blank"
-                class="inline-flex items-center gap-2 rounded-lg bg-gray-900 dark:bg-indigo-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 dark:hover:bg-indigo-600 transition">GitHub
+                class="inline-flex items-center gap-2 rounded-lg bg-bg_d dark:bg-indigo-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 dark:hover:bg-indigo-600 transition">GitHub
                 profile <span aria-hidden="true">→</span></a>
         </div>
     </main>
 
-    <footer
-        class="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 mt-12 py-8 transition-colors">
+    <footer class="border-t border-bd_l dark:border-bd_d fg-color pt-4 pb-16 ">
         <div class="mx-auto max-w-7xl px-6 text-center text-xs text-gray-400 dark:text-gray-500">
             <p>Marko Ilioski · CV built with Tailwind CSS · references available upon request</p>
             <p class="mt-1">📬 markoilioski21@gmail.com | 📞 +389 75 813 355</p>
@@ -481,6 +471,23 @@
 
     <!-- External JavaScript -->
     <script src="js/darkmode.js"></script>
+    <script>
+        const toggleBtn = document.getElementById("darkModeToggle");
+
+        toggleBtn.addEventListener("click", () => {
+            const isDark = document.documentElement.classList.contains("dark");
+
+            if (isDark) {
+                // Switch to light
+                document.documentElement.classList.remove("dark");
+                localStorage.theme = "light";
+            } else {
+                // Switch to dark
+                document.documentElement.classList.add("dark");
+                localStorage.theme = "dark";
+            }
+        });
+    </script>
 </body>
 
 </html>
