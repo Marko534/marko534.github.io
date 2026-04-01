@@ -11,14 +11,13 @@
 } */
 
 @theme {
-    --color-bacground_light: oklch(0.72 0.11 178);
-    --color-bacground_dark: var(--color-gray-900);
+    --color-bg: var(--color-gray-100);
+    --color-fg: var(--color-gray-200);
 }
-
 
 @layer components {
     .bg-color {
-        @apply bg-bacground_light dark:bg-bacground_dark;
+        @apply bg-gray-100 dark:bg-gray-900
     }
 
     .card {
