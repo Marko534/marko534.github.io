@@ -1,14 +1,14 @@
 @import "tailwindcss";
+/* @import "@fontsource-variable/montserrat";
+@import "@fontsource/great-vibes";
+@import url("assets/hurmit-nerd-font/hurmit-nerd-font.css");
+@import url("assets/hurmit-nerd-font-mono/hurmit-nerd-font-mono.css");
+@import url("assets/hurmit-nerd-font-propo/hurmit-nerd-font-propo.css"); */
 
-@import url("assets/font/hurmit-nerd-font/hurmit-nerd-font.css");
-
-/* @custom-variant dark (&:where(.dark, .dark *)); */
-/* @import "tailwindplus"; */
-/* @plugin "@tailwindplus/elements"; */
-
-/* styles.css - all custom styles extracted */
-
-/* Base styles and smooth scrolling */
+/* @theme {
+    --font-sans: "Montserrat Variable", sans-serif;
+    --font-mono: "HurmitNerdFont", monospace;
+} */
 
 @layer components {
     .card {
@@ -20,13 +20,36 @@
     }
 
     .link {
-        @apply inline-flex items-center gap-2 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline mt-4
+        @apply inline-flex items-center gap-2 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline mt-4;
     }
 
     .navagation {
-        @apply text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition
+        @apply text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition;
     }
 
+    /* 
+    .nf {
+        font-family: "HurmitNerdFont", "Hurmit Nerd Font", monospace !important;
+    } */
+    .section-header {
+        @apply border-l-4 border-indigo-500 pl-4 mb-6;
+    }
 
+    .section-title {
+        @apply text-2xl font-bold text-gray-900 dark:text-white;
+    }
 
+    .section-subtitle {
+        @apply text-gray-500 dark:text-gray-400 text-sm mt-1;
+    }
+
+    /* Skill badges  TODO */
+    .skill-badge {
+        @apply bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-xs font-medium px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700;
+    }
+
+    /* Experience / content cards (white, not gray) */
+    .content-card {
+        @apply bg-white dark:bg-gray-900 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm p-6 transition-colors;
+    }
 }
