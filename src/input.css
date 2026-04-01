@@ -1,4 +1,7 @@
 @import "tailwindcss";
+
+@import url("assets/font/hurmit-nerd-font/hurmit-nerd-font.css");
+
 /* @custom-variant dark (&:where(.dark, .dark *)); */
 /* @import "tailwindplus"; */
 /* @plugin "@tailwindplus/elements"; */
@@ -16,7 +19,14 @@
         @apply w-full aspect-3/2 object-cover rounded-xl border border-gray-200 dark:border-gray-800 mb-3;
     }
 
-    /* .image {
-        @apply aspect-3/2 bg-gray-100 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 w-full h-40 object-cover rounded-lg mb-3;
-    } */
+    .link {
+        @apply inline-flex items-center gap-2 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline mt-4
+    }
+
+    .navagation {
+        @apply text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition
+    }
+
+
+
 }
