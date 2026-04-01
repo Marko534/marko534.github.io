@@ -11,18 +11,24 @@
 } */
 
 @theme {
-    --color-bacground_light: oklch(0.72 0.11 178);
-    --color-bacground_dark: var(--color-gray-900);
+    --color-bg_l: var(--color-gray-100);
+    --color-bg_d: var(--color-gray-900);
+
+    --color-fg_l: var(--color-gray-200);
+    --color-fg_d: var(--color-gray-800);
+
+    --color-bd_l: var(--color-gray-300);
+    --color-bd_d: var(--color-gray-700);
 }
 
 
 @layer components {
     .bg-color {
-        @apply bg-bacground_light dark:bg-bacground_dark;
+        @apply bg-bg_l dark:bg-bg_d transition-colors duration-1000;
     }
 
     .card {
-        @apply bg-gray-200 dark:bg-gray-800 rounded-xl border border-gray-300 dark:border-gray-700 p-5 transition-all hover:shadow-xl hover:bg-gray-300 hover:border-gray-400 hover:dark:bg-gray-700 hover:dark:border-gray-700 hover:-translate-y-1;
+        @apply bg-fg_l dark:bg-fg_d rounded-xl border border-bd_l dark:border-bd_d p-5 transition-all hover:shadow-xl hover:bg-gray-300 hover:border-gray-400 hover:dark:bg-gray-700 hover:dark:border-gray-700 hover:-translate-y-1;
     }
 
     .image {

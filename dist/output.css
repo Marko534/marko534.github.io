@@ -120,8 +120,12 @@
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
-    --color-bacground_light: oklch(0.72 0.11 178);
-    --color-bacground_dark: var(--color-gray-900);
+    --color-bg_l: var(--color-gray-100);
+    --color-bg_d: var(--color-gray-900);
+    --color-fg_l: var(--color-gray-200);
+    --color-fg_d: var(--color-gray-800);
+    --color-bd_l: var(--color-gray-300);
+    --color-bd_d: var(--color-gray-700);
   }
 }
 @layer base {
@@ -3714,17 +3718,22 @@
 }
 @layer components {
   .bg-color {
-    background-color: var(--color-bacground_light);
+    background-color: var(--color-bg_l);
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+    transition-duration: var(--tw-duration, var(--default-transition-duration));
+    --tw-duration: 1000ms;
+    transition-duration: 1000ms;
     @media (prefers-color-scheme: dark) {
-      background-color: var(--color-bacground_dark);
+      background-color: var(--color-bg_d);
     }
   }
   .card {
     border-radius: var(--radius-xl);
     border-style: var(--tw-border-style);
     border-width: 1px;
-    border-color: var(--color-gray-300);
-    background-color: var(--color-gray-200);
+    border-color: var(--color-bd_l);
+    background-color: var(--color-fg_l);
     padding: calc(var(--spacing) * 5);
     transition-property: all;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
@@ -3752,10 +3761,10 @@
       }
     }
     @media (prefers-color-scheme: dark) {
-      border-color: var(--color-gray-700);
+      border-color: var(--color-bd_d);
     }
     @media (prefers-color-scheme: dark) {
-      background-color: var(--color-gray-800);
+      background-color: var(--color-fg_d);
     }
     &:hover {
       @media (hover: hover) {
