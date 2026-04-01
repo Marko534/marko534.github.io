@@ -39,13 +39,12 @@
                 </div>
             </div>
             <div class="flex items-center gap-4">
-                <div class="hidden sm:flex gap-4 text-sm">
+                <div class="hidden md:flex gap-4 text-sm">
                     <a href="#experience" class="navagation">Experience</a>
                     <a href="#projects" class="navagation">Projects</a>
                     <a href="#education" class="navagation">Education</a>
                     <a href="#skills" class="navagation">Skills</a>
                 </div>
-                <!-- DARK MODE TOGGLE BUTTON -->
                 <button id="darkModeToggle" aria-label="Toggle dark mode"
                     class="relative p-2 rounded-full fg-color dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
                     <svg id="sunIcon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor"
@@ -61,9 +60,46 @@
                         </path>
                     </svg>
                 </button>
+                <button id="menuToggle"
+                    class="md:hidden p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+                <!-- DARK MODE TOGGLE BUTTON -->
+
             </div>
         </div>
     </header>
+
+    <div id="mobileMenu"
+        class="fixed top-0 right-0 h-full w-64 fg-color transform translate-x-full transition-transform duration-100 z-50 md:hidden">
+
+        <div class="p-6 space-y-4">
+            <button id="closeMenu" class="mb-4 text-gray-700 dark:text-gray-300">✕</button>
+
+            <a href="#experience" class="block navagation">Experience</a>
+            <a href="#projects" class="block navagation">Projects</a>
+            <a href="#education" class="block navagation">Education</a>
+            <a href="#skills" class="block navagation">Skills</a>
+        </div>
+    </div>
+
+    <script>
+        const menu = document.getElementById("mobileMenu");
+        const openBtn = document.getElementById("menuToggle");
+        const closeBtn = document.getElementById("closeMenu");
+
+        openBtn.addEventListener("click", () => {
+            menu.classList.remove("translate-x-full");
+        });
+
+        closeBtn.addEventListener("click", () => {
+            menu.classList.add("translate-x-full");
+        });
+    </script>
 
     <main class="mx-auto max-w-5xl px-6 lg:px-8 py-10 lg:py-12">
 
@@ -93,8 +129,7 @@
 
                         <span class="flex items-center gap-1.5">
                             <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="lucide lucide-mail-icon lucide-mail">
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
                                 <rect x="2" y="4" width="20" height="16" rx="2" />
                             </svg>
