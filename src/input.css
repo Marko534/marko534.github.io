@@ -82,4 +82,8 @@
         @apply text-xs text-gray-500 dark:text-gray-500 bg-bg_l dark:bg-bg_d px-2 py-0.5 rounded-full
     }
 
+    .highlight-text {
+        @apply text-indigo-600 dark:text-indigo-400 text-sm font-medium
+    }
+
 }

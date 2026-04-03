@@ -35,16 +35,16 @@
                     <img src="assets/images/profile.jpg" alt="PawPrint preview" class="rounded-full">
                 </div>
                 <div>
-                    <h1 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">Marko Ilioski</h1>
-                    <p class="text-xs text-gray-500 dark:text-gray-400 -mt-0.5">Software Developer · Data Engineer</p>
+                    <h1 class="card-title">Marko Ilioski</h1>
+                    <p class="small-text !mt-0">Data Engineer & Software Developer</p>
                 </div>
             </div>
             <div class="flex items-center gap-4">
                 <div class="hidden md:flex gap-4 text-sm">
                     <a href="#experience" class="navagation">Experience</a>
+                    <a href="#skills" class="navagation">Skills</a>
                     <a href="#projects" class="navagation">Projects</a>
                     <a href="#education" class="navagation">Education</a>
-                    <a href="#skills" class="navagation">Skills</a>
                 </div>
                 <!-- DARK MODE TOGGLE BUTTON -->
 
@@ -85,9 +85,9 @@
             <button id="closeMenu" class="mb-4 text-gray-700 dark:text-gray-300">✕</button>
 
             <a href="#experience" class="block navagation">Experience</a>
+            <a href="#skills" class="block navagation">Skills</a>
             <a href="#projects" class="block navagation">Projects</a>
             <a href="#education" class="block navagation">Education</a>
-            <a href="#skills" class="block navagation">Skills</a>
         </div>
     </div>
 
@@ -121,15 +121,8 @@
                         Get in touch!</h3>
                     <div class="mt-4 flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-300">
 
-                        <span class="flex items-center gap-1.5">
-                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="lucide lucide-phone-icon lucide-phone">
-                                <path
-                                    d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" />
-                            </svg>
-                            <a href="tel:+38975813355" class="link !mt-0">+389 75 813 355</a>
-                        </span>
+                        <!-- 
+                         -->
 
                         <span class="flex items-center gap-1.5">
                             <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" viewBox="0 0 24 24" fill="none"
@@ -177,13 +170,13 @@
                 <div class="flex flex-wrap justify-between items-start gap-2">
                     <div>
                         <h3 class="card-title">Data Engineer · Involve</h3>
-                        <p class="text-indigo-600 dark:text-indigo-400 text-sm font-medium">Feb 2025 – Aug 2025</p>
+                        <p class="highlight-text">Feb 2025 – Aug 2025</p>
                     </div>
-                    <span
+                    <!-- <span
                         class="bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs px-3 py-1 rounded-full border dark:border-gray-700">Reference:
                         <a href="https://www.linkedin.com/in/klimentina-ratkova-2b1475102/"
                             class="text-indigo-600 dark:text-indigo-400 hover:underline" target="_blank">Klimentina
-                            Ratkova</a></span>
+                            Ratkova</a></span> -->
                 </div>
                 <ul class="small-text space-y-2 list-disc pl-5 marker:text-indigo-400">
                     <li>Migrated system from daily to hourly updates, optimizing Google Cloud Platform to reduce
@@ -199,7 +192,7 @@
                 <div class="flex flex-wrap justify-between items-start gap-2">
                     <div>
                         <h3 class="card-title">Intern · Aspect</h3>
-                        <p class="text-indigo-600 dark:text-indigo-400 text-sm font-medium">Jul 2023 – Sep 2023</p>
+                        <p class="highlight-text">Jul 2023 – Sep 2023</p>
                     </div>
                 </div>
                 <ul class="small-text space-y-2 list-disc pl-5 marker:text-indigo-400">
@@ -215,7 +208,7 @@
                 <div class="flex flex-wrap justify-between items-start gap-2">
                     <div>
                         <h3 class="card-title">Intern · InterWorks</h3>
-                        <p class="text-indigo-600 dark:text-indigo-400 text-sm font-medium">Jul 2022 – Aug 2022</p>
+                        <p class="highlight-text">Jul 2022 – Aug 2022</p>
                     </div>
                 </div>
                 <ul class="small-text space-y-2 list-disc pl-5 marker:text-indigo-400">
@@ -268,10 +261,10 @@
             </div>
             <div class="mt-4 card-static">
                 <h3 class="card-title">🌐 Languages</h3>
-                <div class="gap-6 mt-2 small-text">
-                    <span>🇲🇰 Macedonian (Native)</span>
-                    <span>🇬🇧 English (Fluent)</span>
-                    <span>🇩🇪 German (A2)</span>
+                <div class="flex flex-wrap gap-6 mt-2 small-text">
+                    <span class="whitespace-nowrap">🇲🇰 Macedonian (Native)</span>
+                    <span class="whitespace-nowrap">🇬🇧 English (Fluent)</span>
+                    <span class="whitespace-nowrap">🇩🇪 German (A2)</span>
                 </div>
             </div>
         </div>
@@ -306,8 +299,7 @@
             <div class="flex flex-col justify-center">
                 <p class="text-gray-500 dark:text-gray-400">
                     A real-time 3D wind simulation using the Lattice Boltzmann Method (LBM), implemented
-                    entirely on the GPU via Godot's <code
-                        class="text-indigo-600 dark:text-indigo-400">RenderingDevice</code> compute shaders.
+                    entirely on the GPU via Godot's <code class="highlight-text">RenderingDevice</code> compute shaders.
                     Wind data is stored in a 3D texture and consumed by material shaders and particle systems with
                     no CPU readback.
                 </p>
@@ -478,7 +470,7 @@
         </div>
 
         <!-- GitHub CTA -->
-        <div
+        <!-- <div
             class="mt-10 bg-gradient-to-r from-indigo-50 to-white dark:from-indigo-950/40 dark:to-gray-900 rounded-2xl p-6 border border-indigo-100 dark:border-indigo-900/50 flex flex-wrap items-center justify-between gap-4 transition-colors">
             <div>
                 <h3 class="font-semibold text-gray-900 dark:text-white">Explore more projects & contributions</h3>
@@ -488,13 +480,13 @@
             <a href="https://github.com/Marko534" target="_blank"
                 class="inline-flex items-center gap-2 rounded-lg bg-bg_d dark:bg-indigo-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 dark:hover:bg-indigo-600 transition">GitHub
                 profile <span aria-hidden="true">→</span></a>
-        </div>
+        </div> -->
     </main>
 
     <footer class="border-t border-bd_l dark:border-bd_d fg-color pt-4 pb-16 ">
         <div class="mx-auto max-w-7xl px-6 text-center text-xs text-gray-400 dark:text-gray-500">
             <p>Marko Ilioski · CV built with Tailwind CSS · references available upon request</p>
-            <p class="mt-1">📬 markoilioski21@gmail.com | 📞 +389 75 813 355</p>
+            <!-- <p class="mt-1">📬 markoilioski21@gmail.com | 📞 +389 75 813 355</p> -->
         </div>
     </footer>
 
