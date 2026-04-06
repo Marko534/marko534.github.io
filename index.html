@@ -52,7 +52,7 @@
                 </div>
                 <!-- DARK MODE TOGGLE BUTTON -->
 
-                <button id="darkModeToggle" aria-label="Toggle dark mode"
+                <!-- <button id="darkModeToggle" aria-label="Toggle dark mode"
                     class="relative p-2 rounded-full fg-color dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
                     <svg id="sunIcon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor"
                         viewBox="0 0 24 24">
@@ -66,7 +66,7 @@
                             d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
                         </path>
                     </svg>
-                </button>
+                </button> -->
                 <button id="menuToggle"
                     class="md:hidden p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none"
@@ -156,9 +156,11 @@
         <div class="card-static mb-8">
             <h3 class="card-title">
                 Professional Summary</h3>
-            <p class="small-text">Software Developer with
-                experience in data engineering, backend development, and system optimization. Skilled in
-                Python, SQL, C++, Google Cloud, and Linux. Passionate about learning new technologies
+            <p class="small-text">
+
+                Software Developer with experience in data engineering, backend development, and systems programming.
+                Skilled in Python, SQL, C++, Google Cloud, and Linux. Drawn to low-level graphics and GPU programming in
+                Vulkan, OpenGL, GLSL, CUDA, and Godot. Passionate about learning new technologies
                 and solving complex problems through hands-on projects (and cooking).</p>
         </div>
 
@@ -232,44 +234,66 @@
                 <p class="small-text">Tools, languages & frameworks I work with</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
                 <div class="card-static">
                     <h3 class="card-title"><span class="text-indigo-500">▹</span> Languages</h3>
                     <div class="flex flex-wrap gap-2 mt-3">
                         <span class="skill-badge">Python</span>
-                        <span class="skill-badge">SQL</span><span class="skill-badge">Java</span><span
-                            class="skill-badge">C#</span>
-                        <span class="skill-badge">C++</span><span class="skill-badge">Rust</span><span
-                            class="skill-badge">Kotlin</span>
-                        <span class="skill-badge">PHP</span><span class="skill-badge">bash</span>
+                        <span class="skill-badge">C++</span>
+                        <span class="skill-badge">C#</span>
+                        <span class="skill-badge">Rust</span>
+                        <span class="skill-badge">SQL</span>
+                        <span class="skill-badge">Java</span>
+                        <span class="skill-badge">Kotlin</span>
+                        <span class="skill-badge">PHP</span>
+                        <span class="skill-badge">Bash</span>
                     </div>
                 </div>
+
                 <div class="card-static">
-                    <h3 class="card-title"><span class="text-indigo-500">▹</span> Data Science & ML</h3>
+                    <h3 class="card-title"><span class="text-indigo-500">▹</span> Graphics & GPU</h3>
                     <div class="flex flex-wrap gap-2 mt-3">
-                        <span class="skill-badge">Pandas</span><span class="skill-badge">NumPy</span><span
-                            class="skill-badge">Scikit-learn</span>
-                        <span class="skill-badge">TensorFlow</span><span class="skill-badge">PyTorch</span><span
-                            class="skill-badge">Spark</span><span class="skill-badge">CUDA</span>
+                        <span class="skill-badge">Vulkan</span>
+                        <span class="skill-badge">OpenGL</span>
+                        <span class="skill-badge">GLSL</span>
+                        <span class="skill-badge">CUDA</span>
+                        <span class="skill-badge">Godot</span>
+                        <span class="skill-badge">Blender</span>
                     </div>
-                    <h3 class="card-title mt-4"><span class="text-indigo-500">▹</span> Frameworks & Cloud</h3>
+                    <h3 class="card-title mt-4"><span class="text-indigo-500">▹</span> Data & ML</h3>
                     <div class="flex flex-wrap gap-2 mt-2">
-                        <span class="skill-badge">Laravel</span><span class="skill-badge">Spring</span><span
-                            class="skill-badge">.NET</span>
-                        <span class="skill-badge">Vulkan</span><span class="skill-badge">OpenGL</span><span
-                            class="skill-badge">Godot</span>
-                        <span class="skill-badge">Docker</span><span class="skill-badge">CMake</span><span
-                            class="skill-badge">Google Cloud</span>
-                        <span class="skill-badge">PostgreSQL</span><span class="skill-badge">MS SQL Server</span>
+                        <span class="skill-badge">Pandas</span>
+                        <span class="skill-badge">NumPy</span>
+                        <span class="skill-badge">Scikit-learn</span>
+                        <span class="skill-badge">TensorFlow</span>
+                        <span class="skill-badge">PyTorch</span>
+                        <span class="skill-badge">Spark</span>
                     </div>
                 </div>
-            </div>
-            <div class="mt-4 card-static">
-                <h3 class="card-title">🌐 Languages</h3>
-                <div class="flex flex-wrap gap-4 mt-2 small-text">
-                    <span class="whitespace-nowrap">🇲🇰 Macedonian (Native)</span>
-                    <span class="whitespace-nowrap">🇬🇧 English (Fluent)</span>
-                    <span class="whitespace-nowrap">🇩🇪 German (A2)</span>
+
+                <div class="card-static">
+                    <h3 class="card-title"><span class="text-indigo-500">▹</span> Backend & Cloud</h3>
+                    <div class="flex flex-wrap gap-2 mt-3">
+                        <span class="skill-badge">.NET</span>
+                        <span class="skill-badge">Spring</span>
+                        <span class="skill-badge">Laravel</span>
+                        <span class="skill-badge">Docker</span>
+                        <span class="skill-badge">CMake</span>
+                        <span class="skill-badge">Google Cloud</span>
+                        <span class="skill-badge">PostgreSQL</span>
+                        <span class="skill-badge">RabbitMQ</span>
+                    </div>
                 </div>
+
+                <div class="card-static">
+                    <h3 class="card-title">🌐 Spoken Languages</h3>
+                    <div class="flex flex-wrap gap-4 mt-2 small-text">
+                        <span class="whitespace-nowrap">🇲🇰 Macedonian (Native)</span>
+                        <span class="whitespace-nowrap">🇬🇧 English (Fluent)</span>
+                        <span class="whitespace-nowrap">🇩🇪 German (A2)</span>
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -295,7 +319,7 @@
                     Your browser doesn't support HTML5 video.
                 </video>
                 <div class="flex items-center justify-between mb-2">
-                    <span class="text-2xl">🍃</span>
+                    <span class="text-2xl">🌪️</span>
                     <span class="pill">Godot/GLSL</span>
                 </div>
                 <h3 class="card-title">Godot LBM Wind Simulation</h3>
@@ -333,17 +357,17 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 
+
             <div class="card">
-                <img src="assets/images/pawprint1.png" alt="PawPrint preview" class="image">
+                <img src="assets/images/plav voz.png" alt="Plav voz preview" class="image">
                 <div class="flex items-center justify-between mb-2">
-                    <span class="text-2xl">🐾</span>
-                    <span class="pill">.NET
-                        Core</span>
+                    <span class="text-2xl">🎮</span>
+                    <span class="pill">Godot</span>
                 </div>
-                <h3 class="card-title">PawPrint</h3>
-                <p class="small-text">Pet adoption app using .NET Core and
-                    PostgreSQL. Gained experience in REST APIs and team collaboration.</p>
-                <a href="https://github.com/m1thrandir225/pawprint" target="_blank" rel="noopener noreferrer"
+                <h3 class="card-title">Plav voz</h3>
+                <p class="small-text">Godot-based horror game because it was fun. Focused on environment design and
+                    custom blender assets.</p>
+                <a href="https://github.com/ph4nt0m37x/Plavi-Voz" target="_blank" rel="noopener noreferrer"
                     class="link">
                     View on GitHub →
                 </a>
@@ -379,24 +403,10 @@
             </div>
 
             <div class="card">
-                <img src="assets/images/pathfinder.png" alt="Pathfinder preview" class="image">
-                <div class="flex items-center justify-between mb-2">
-                    <span class="text-2xl">🧭</span>
-                    <span class="pill">JS</span>
-                </div>
-                <h3 class="card-title">Pathfinder</h3>
-                <p class="small-text">Visualization tool for pathfinding
-                    algorithms using Markov Chains (JavaScript).</p>
-                <a href="https://github.com/Marko534/pathfinder" target="_blank" rel="noopener noreferrer" class="link">
-                    View on GitHub →
-                </a>
-            </div>
-
-            <div class="card">
                 <img src="assets/images/fluid sim.png" alt="Fluid Simulation preview" class="image">
                 <div class="flex items-center justify-between mb-2">
                     <span class="text-2xl">🌊</span>
-                    <span class="pill">CUDA</span>
+                    <span class="pill">CUDA/C</span>
                 </div>
                 <h3 class="card-title">Fluid Simulation</h3>
                 <p class="small-text">CUDA-based fluid flow simulation to learn
@@ -408,19 +418,36 @@
             </div>
 
             <div class="card">
-                <img src="assets/images/plav voz.png" alt="Plav voz preview" class="image">
+                <img src="assets/images/pawprint1.png" alt="PawPrint preview" class="image">
                 <div class="flex items-center justify-between mb-2">
-                    <span class="text-2xl">🎮</span>
-                    <span class="pill">Godot</span>
+                    <span class="text-2xl">🐾</span>
+                    <span class="pill">.NET/C#</span>
                 </div>
-                <h3 class="card-title">Plav voz</h3>
-                <p class="small-text">Godot-based horror game because it was fun
-                    — narrative-driven experience.</p>
-                <a href="https://github.com/ph4nt0m37x/Plavi-Voz" target="_blank" rel="noopener noreferrer"
+                <h3 class="card-title">PawPrint</h3>
+                <p class="small-text">Pet adoption app using .NET Core and
+                    PostgreSQL. Gained experience in REST APIs and team collaboration.</p>
+                <a href="https://github.com/m1thrandir225/pawprint" target="_blank" rel="noopener noreferrer"
                     class="link">
                     View on GitHub →
                 </a>
             </div>
+
+            <div class="card">
+                <img src="assets/images/pathfinder.png" alt="Pathfinder preview" class="image">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-2xl">🧭</span>
+                    <span class="pill">JS</span>
+                </div>
+                <h3 class="card-title">Pathfinder</h3>
+                <p class="small-text">Visualization tool for pathfinding
+                    algorithms using Markov Chains.</p>
+                <a href="https://github.com/Marko534/pathfinder" target="_blank" rel="noopener noreferrer" class="link">
+                    View on GitHub →
+                </a>
+            </div>
+
+
+
 
         </div>
         </div>

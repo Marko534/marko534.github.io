@@ -45,7 +45,7 @@
     }
 
     .link {
-        @apply inline-flex items-center gap-2 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline mt-4;
+        @apply inline-flex items-center gap-2 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline mt-auto;
     }
 
     .navagation {
